@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function PortfolioPage() {
   const projects = [
@@ -13,24 +16,50 @@ export default function PortfolioPage() {
   return (
     <section className="section">
       <div className="container">
-        <h1 className="text-4xl font-extrabold text-center">Portfolio</h1>
-        <p className="text-[var(--text-secondary)] text-center mt-2 max-w-[70ch] mx-auto">
+        <motion.h1 
+          className="text-responsive-xl font-extrabold text-center"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          Portfolio
+        </motion.h1>
+        <motion.p 
+          className="text-[var(--text-secondary)] text-center mt-2 max-w-[70ch] mx-auto"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           A selection of recent projects showcasing our expertise across various industries and technologies.
-        </p>
+        </motion.p>
         <div className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
-            <div key={i} className="card overflow-hidden rounded-none">
-              <div className="relative aspect-square">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover"
-                  priority={i < 3}
-                />
+            <motion.div 
+              key={i} 
+              className="card overflow-hidden rounded-none"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ scale: 1.05, y: -10 }}
+            >
+              <div className="relative aspect-square overflow-hidden">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                    priority={i < 3}
+                  />
+                </motion.div>
               </div>
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <h3 className="font-bold text-lg mb-2">{project.title}</h3>
                 {project.desc && (
                   <p className="text-[var(--text-muted)] text-sm mb-3">{project.desc}</p>
@@ -39,12 +68,10 @@ export default function PortfolioPage() {
                   <div className="text-xs text-[var(--accent)] font-medium">{project.tech}</div>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-
-

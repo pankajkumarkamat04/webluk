@@ -1,17 +1,38 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function ServicesPage() {
     return (
         <section className="section">
             <div className="container">
                 {/* Hero */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Our Services</h1>
-                    <p className="text-[var(--text-secondary)] text-lg">
+                <motion.div 
+                    className="text-center max-w-4xl mx-auto mb-16"
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <motion.h1 
+                        className="text-responsive-xl font-extrabold mb-4"
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        Our Services
+                    </motion.h1>
+                    <motion.p 
+                        className="text-[var(--text-secondary)] text-lg"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
                         Development is at the heart of what we do. We engineer robust, scalable solutions and surround them with the creative and growth services your product needs to succeed.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
                 {/* Services Grid */}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+                <div className="grid-responsive mb-16">
                     {[
                         {name: "Web Development", icon: "🌐", desc: "Custom web apps, dashboards and admin panels", features: ["React/Next.js", "TypeScript", "Responsive Design"]},
                         {name: "Mobile App Development", icon: "📱", desc: "iOS, Android and cross-platform applications", features: ["React Native", "Flutter", "Native Performance"]},
@@ -23,25 +44,54 @@ export default function ServicesPage() {
                         {name: "Integrations & Automation", icon: "🔗", desc: "Third-party integrations and workflow automation", features: ["API Integrations", "Workflow Automation", "Data Synchronization"]},
                         {name: "Maintenance & Support", icon: "🔧", desc: "Ongoing updates, security patches and technical support", features: ["24/7 Support", "Security Updates", "Performance Monitoring"]},
                     ].map((service, i) => (
-                        <div key={i} className="card p-6">
-                            <div className="text-3xl mb-4">{service.icon}</div>
+                        <motion.div 
+                            key={i} 
+                            className="card"
+                            initial={{ y: 50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
+                        >
+                            <motion.div 
+                                className="text-3xl mb-4"
+                                whileHover={{ scale: 1.2, rotate: 10 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {service.icon}
+                            </motion.div>
                             <h3 className="font-bold text-lg mb-2">{service.name}</h3>
                             <p className="text-[var(--text-secondary)] mb-4">{service.desc}</p>
                             <ul className="space-y-1">
                                 {service.features.map((feature, j) => (
-                                    <li key={j} className="text-sm text-[var(--text-muted)] flex items-center">
+                                    <motion.li 
+                                        key={j} 
+                                        className="text-sm text-[var(--text-muted)] flex items-center"
+                                        initial={{ x: -10, opacity: 0 }}
+                                        whileInView={{ x: 0, opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.3, delay: j * 0.1 }}
+                                    >
                                         <span className="text-[var(--accent)] mr-2">•</span>
                                         {feature}
-                                    </li>
+                                    </motion.li>
                                 ))}
                             </ul>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
                 {/* Process */}
                 <div className="mb-16">
-                    <h2 className="text-3xl font-bold text-center mb-8">Our Development Process</h2>
+                    <motion.h2 
+                        className="text-3xl font-bold text-center mb-8"
+                        initial={{ y: 30, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        Our Development Process
+                    </motion.h2>
                     <div className="grid gap-6 md:grid-cols-4">
                         {[
                             {step: "01", title: "Discovery", desc: "Understanding your requirements and technical constraints"},
@@ -49,26 +99,81 @@ export default function ServicesPage() {
                             {step: "03", title: "Development", desc: "Iterative development with regular demos and feedback"},
                             {step: "04", title: "Launch", desc: "Deployment, testing, and ongoing support and maintenance"},
                         ].map((item, i) => (
-                            <div key={i} className="card p-6 text-center">
-                                <div className="text-2xl font-extrabold text-[var(--accent)] mb-3">{item.step}</div>
+                            <motion.div 
+                                key={i} 
+                                className="card p-6 text-center"
+                                initial={{ y: 50, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: i * 0.15 }}
+                                whileHover={{ scale: 1.05, y: -5 }}
+                            >
+                                <motion.div 
+                                    className="text-2xl font-extrabold text-[var(--accent)] mb-3"
+                                    whileHover={{ scale: 1.2, rotate: 360 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    {item.step}
+                                </motion.div>
                                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                                 <p className="text-[var(--text-muted)] text-sm">{item.desc}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
 
                 {/* CTA */}
-                <div className="card p-8 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to start your project?</h2>
-                    <p className="text-[var(--text-secondary)] mb-6 max-w-[60ch] mx-auto">
+                <motion.div 
+                    className="card p-8 text-center"
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6 }}
+                    whileHover={{ scale: 1.02 }}
+                >
+                    <motion.h2 
+                        className="text-2xl sm:text-3xl font-bold mb-4"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        Ready to start your project?
+                    </motion.h2>
+                    <motion.p 
+                        className="text-[var(--text-secondary)] mb-6 max-w-[60ch] mx-auto"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
                         We&apos;re flexible with engagement models — fixed scope, monthly retainer, or on‑demand support. Let&apos;s discuss what works best for your needs.
-                    </p>
-                    <div className="flex gap-4 justify-center">
-                        <a href="/contact" className="btn btn-primary">Get Started</a>
-                        <a href="/portfolio" className="btn card">View Our Work</a>
-                    </div>
-                </div>
+                    </motion.p>
+                    <motion.div 
+                        className="flex gap-4 justify-center"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                        <motion.a 
+                            href="/contact" 
+                            className="btn btn-primary"
+                            whileHover={{ scale: 1.1, y: -3 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Get Started
+                        </motion.a>
+                        <motion.a 
+                            href="/portfolio" 
+                            className="btn card"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            View Our Work
+                        </motion.a>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

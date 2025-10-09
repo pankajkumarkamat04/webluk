@@ -252,7 +252,7 @@ body {
 .sliding-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
   width: 85%;
   max-width: 400px;
   height: 100vh;
@@ -260,14 +260,23 @@ body {
   background: var(--background);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   z-index: 9999;
-  transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  will-change: transform;
+  display: none;
 }
 
 .sliding-menu.open {
-  transform: translateX(0);
+  display: block;
+  right: 0;
+  animation: slideInFromRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Ensure overlay is behind menu but above everything else */

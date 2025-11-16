@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FaCode, FaMobileAlt, FaShoppingCart, FaServer, FaCloud, FaPalette, FaChartLine, FaPlug, FaTools } from "react-icons/fa";
 
 export default function ServicesPage() {
     return (
@@ -34,16 +35,18 @@ export default function ServicesPage() {
                 {/* Services Grid */}
                 <div className="grid-responsive mb-16">
                     {[
-                        {name: "Web Development", icon: "🌐", desc: "Custom web apps, dashboards and admin panels", features: ["React/Next.js", "TypeScript", "Responsive Design"]},
-                        {name: "Mobile App Development", icon: "📱", desc: "iOS, Android and cross-platform applications", features: ["React Native", "Flutter", "Native Performance"]},
-                        {name: "E‑commerce Solutions", icon: "🛒", desc: "Online stores and payment integrations", features: ["Headless Commerce", "Payment Gateways", "Inventory Management"]},
-                        {name: "API & Backend Development", icon: "⚡", desc: "RESTful APIs, microservices and databases", features: ["Node.js/Python", "Database Design", "Cloud Integration"]},
-                        {name: "DevOps & Cloud", icon: "☁️", desc: "Deployment, CI/CD, monitoring and cloud infrastructure", features: ["AWS/Azure", "Docker/Kubernetes", "Monitoring & Security"]},
-                        {name: "UI/UX Design", icon: "🎨", desc: "User interface design and user experience optimization", features: ["Figma/Adobe XD", "Prototyping", "User Research"]},
-                        {name: "Performance & SEO", icon: "📈", desc: "Site optimization, Core Web Vitals and search rankings", features: ["Core Web Vitals", "Technical SEO", "Analytics Setup"]},
-                        {name: "Integrations & Automation", icon: "🔗", desc: "Third-party integrations and workflow automation", features: ["API Integrations", "Workflow Automation", "Data Synchronization"]},
-                        {name: "Maintenance & Support", icon: "🔧", desc: "Ongoing updates, security patches and technical support", features: ["24/7 Support", "Security Updates", "Performance Monitoring"]},
-                    ].map((service, i) => (
+                        {name: "Web Development", icon: FaCode, desc: "Custom web apps, dashboards and admin panels", features: ["React/Next.js", "TypeScript", "Responsive Design"]},
+                        {name: "Mobile App Development", icon: FaMobileAlt, desc: "iOS, Android and cross-platform applications", features: ["React Native", "Flutter", "Native Performance"]},
+                        {name: "E‑commerce Solutions", icon: FaShoppingCart, desc: "Online stores and payment integrations", features: ["Headless Commerce", "Payment Gateways", "Inventory Management"]},
+                        {name: "API & Backend Development", icon: FaServer, desc: "RESTful APIs, microservices and databases", features: ["Node.js/Python", "Database Design", "Cloud Integration"]},
+                        {name: "DevOps & Cloud", icon: FaCloud, desc: "Deployment, CI/CD, monitoring and cloud infrastructure", features: ["AWS/Azure", "Docker/Kubernetes", "Monitoring & Security"]},
+                        {name: "UI/UX Design", icon: FaPalette, desc: "User interface design and user experience optimization", features: ["Figma/Adobe XD", "Prototyping", "User Research"]},
+                        {name: "Performance & SEO", icon: FaChartLine, desc: "Site optimization, Core Web Vitals and search rankings", features: ["Core Web Vitals", "Technical SEO", "Analytics Setup"]},
+                        {name: "Integrations & Automation", icon: FaPlug, desc: "Third-party integrations and workflow automation", features: ["API Integrations", "Workflow Automation", "Data Synchronization"]},
+                        {name: "Maintenance & Support", icon: FaTools, desc: "Ongoing updates, security patches and technical support", features: ["24/7 Support", "Security Updates", "Performance Monitoring"]},
+                    ].map((service, i) => {
+                        const IconComponent = service.icon;
+                        return (
                         <motion.div 
                             key={i} 
                             className="card"
@@ -54,11 +57,11 @@ export default function ServicesPage() {
                             whileHover={{ scale: 1.05, y: -5 }}
                         >
                             <motion.div 
-                                className="text-3xl mb-4"
+                                className="text-3xl mb-4 text-[var(--accent)]"
                                 whileHover={{ scale: 1.2, rotate: 10 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                {service.icon}
+                                <IconComponent />
                             </motion.div>
                             <h3 className="font-bold text-lg mb-2">{service.name}</h3>
                             <p className="text-[var(--text-secondary)] mb-4">{service.desc}</p>
@@ -78,7 +81,8 @@ export default function ServicesPage() {
                                 ))}
                             </ul>
                         </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* Process */}

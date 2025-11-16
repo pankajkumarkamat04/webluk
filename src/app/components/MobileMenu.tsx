@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
+import { FaTimes, FaHome, FaInfoCircle, FaCog, FaBriefcase, FaEnvelope } from "react-icons/fa";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +54,14 @@ export default function MobileMenu() {
     }
   }, [isOpen]);
 
+  // Preload About section image when mobile menu opens
+  useEffect(() => {
+    if (isOpen) {
+      const img = new Image();
+      img.src = '/about.png';
+    }
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -82,18 +92,15 @@ export default function MobileMenu() {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-[var(--border)]">
-            <h2 className="text-xl font-bold">
-              <span className="text-[var(--text-primary)]">WEBLUK</span>
-              <span className="text-[var(--accent)]">SOLUTIONS</span>
-            </h2>
+            <div className="relative">
+              <Logo />
+            </div>
             <button
               onClick={closeMenu}
               className="p-2 hover:bg-[var(--card-bg)] rounded-md transition-colors"
               aria-label="Close menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <FaTimes className="w-6 h-6" />
             </button>
           </div>
 
@@ -105,7 +112,7 @@ export default function MobileMenu() {
                 href="/"
                 onClick={closeMenu}
               >
-                <span className="text-xl">🏠</span>
+                <FaHome className="text-xl text-[var(--accent)]" />
                 <span>Home</span>
               </Link>
               <Link 
@@ -113,7 +120,7 @@ export default function MobileMenu() {
                 href="/about"
                 onClick={closeMenu}
               >
-                <span className="text-xl">ℹ️</span>
+                <FaInfoCircle className="text-xl text-[var(--accent)]" />
                 <span>About</span>
               </Link>
               <Link 
@@ -121,7 +128,7 @@ export default function MobileMenu() {
                 href="/services"
                 onClick={closeMenu}
               >
-                <span className="text-xl">⚙️</span>
+                <FaCog className="text-xl text-[var(--accent)]" />
                 <span>Services</span>
               </Link>
               <Link 
@@ -129,7 +136,7 @@ export default function MobileMenu() {
                 href="/portfolio"
                 onClick={closeMenu}
               >
-                <span className="text-xl">💼</span>
+                <FaBriefcase className="text-xl text-[var(--accent)]" />
                 <span>Portfolio</span>
               </Link>
               <Link 
@@ -137,7 +144,7 @@ export default function MobileMenu() {
                 href="/contact"
                 onClick={closeMenu}
               >
-                <span className="text-xl">📧</span>
+                <FaEnvelope className="text-xl text-[var(--accent)]" />
                 <span>Contact</span>
               </Link>
             </div>

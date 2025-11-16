@@ -43,18 +43,18 @@ export default function PortfolioPage() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ scale: 1.05, y: -10 }}
             >
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative aspect-square overflow-hidden bg-transparent">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full"
+                  className="w-full h-full bg-transparent"
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
+                    className="object-contain bg-transparent"
                     priority={i < 3}
                   />
                 </motion.div>

@@ -4,8 +4,8 @@
   /* Light theme defaults */
   --background: #ffffff;
   --foreground: #111827;
-  --accent: #e53935;
-  /* warm red */
+  --accent: #5A32FF;
+  /* purple */
   --muted: #6b7280;
   /* gray-500 */
   --text-primary: #111827;
@@ -27,6 +27,23 @@
   --border: rgba(255, 255, 255, 0.1);
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Logo theme switching */
+.logo-dark {
+  display: block;
+}
+
+.logo-white {
+  display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .logo-white {
+  display: block;
 }
 
 @theme inline {
@@ -134,6 +151,35 @@ body {
   .card {
     padding: 1rem;
   }
+}
+
+/* Portfolio card image transparency */
+.card .aspect-square,
+.card .relative.aspect-square {
+  background: transparent !important;
+}
+
+.card .aspect-square *,
+.card .aspect-square img,
+.card .aspect-square > div,
+.card .aspect-square > div > div,
+.card .aspect-square > div > div > span,
+.card .aspect-square > div > div > span > img {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.card .aspect-square img[src*="portfolio"],
+.card .aspect-square img {
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: normal;
+}
+
+/* Ensure Next.js Image wrapper is transparent */
+.card .aspect-square span[style*="position: absolute"] {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Translucent header background that adapts to theme */

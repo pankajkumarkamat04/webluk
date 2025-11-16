@@ -95,7 +95,7 @@ export default function AboutPage() {
               transition={{ duration: 0.3 }}
             >
               <Image 
-                src="/about.jpg" 
+                src="/about.png" 
                 alt="Webluk Solutions team working on development projects" 
                 width={600}
                 height={320}

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* 1) Hero */}
-      <section className="min-h-[60vh] flex items-center">
+      <section className="min-h-[50vh] flex items-center">
         <div className="container flex items-center justify-center min-h-[50vh] w-full">
           {/* Centered Content Area */}
           <motion.div 
@@ -81,31 +81,40 @@ export default function Home() {
         className="section pt-4 sm:pt-6 lg:pt-8"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "-100px 0px" }}
         transition={{ duration: 0.8 }}
       >
-        <div className="container grid gap-6 lg:gap-8 lg:grid-cols-2 items-center">
+        <div className="container max-w-4xl mx-auto">
           <motion.div 
-            className="order-2 lg:order-1"
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-8"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <motion.h2 
               className="text-responsive-lg font-bold mb-4"
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               About us
             </motion.h2>
-            <div className="text-[var(--text-secondary)] space-y-3">
+          </motion.div>
+
+          <motion.div 
+            className="text-center"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="text-[var(--text-secondary)] space-y-4 max-w-3xl mx-auto">
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Webluk Solutions is a development-first digital agency specializing in robust, scalable web applications. We bridge the gap between innovative ideas and technical execution, serving as a trusted partner for startups, small businesses, and enterprises looking to transform their digital presence.
@@ -114,7 +123,7 @@ export default function Home() {
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 Our core philosophy centers on clean, maintainable code and modern development practices. We architect systems that are secure, performant, and user-friendly, using cutting-edge technologies like React, Next.js, Node.js, and TypeScript.
@@ -123,34 +132,12 @@ export default function Home() {
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
                 Located in Kolkata, we serve clients globally while maintaining the personal touch of a local agency. Whether you need a simple landing page, complex e-commerce platform, or custom web application, we have the expertise and dedication to bring your vision to life.
               </motion.p>
             </div>
-          </motion.div>
-          
-          <motion.div 
-            className="relative order-1 lg:order-2"
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <motion.div 
-              className="card overflow-hidden"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image 
-                src="/about.png" 
-                alt="Webluk Solutions team working on development projects" 
-                width={600}
-                height={320}
-                className="w-full h-64 sm:h-80 object-cover"
-              />
-            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -160,7 +147,7 @@ export default function Home() {
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1, margin: "-100px 0px" }}
         transition={{ duration: 0.8 }}
       >
         <div className="container">
@@ -168,7 +155,7 @@ export default function Home() {
             className="text-responsive-lg font-bold text-center"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Our services
@@ -192,7 +179,7 @@ export default function Home() {
                 className="card"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
@@ -217,7 +204,7 @@ export default function Home() {
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1, margin: "-100px 0px" }}
         transition={{ duration: 0.8 }}
       >
         <div className="container">
@@ -225,7 +212,7 @@ export default function Home() {
             className="text-responsive-lg font-bold text-center"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Our working process
@@ -242,7 +229,7 @@ export default function Home() {
                 className="card text-center"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
@@ -266,7 +253,7 @@ export default function Home() {
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1, margin: "-100px 0px" }}
         transition={{ duration: 0.8 }}
       >
         <div className="container text-center">
@@ -274,7 +261,7 @@ export default function Home() {
             className="text-responsive-lg font-bold"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Portfolio
@@ -283,7 +270,7 @@ export default function Home() {
             className="text-[var(--text-secondary)] mt-2 max-w-[60ch] mx-auto"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             A glimpse of recent work. See the full case studies and live links on our portfolio page.
@@ -302,7 +289,7 @@ export default function Home() {
                 className="card overflow-hidden rounded-none"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
               >
@@ -334,10 +321,11 @@ export default function Home() {
             className="btn btn-primary mt-6 inline-block"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.8 }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            suppressHydrationWarning
           >
             See all projects
           </motion.a>
@@ -349,14 +337,14 @@ export default function Home() {
         className="section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "-100px 0px" }}
         transition={{ duration: 0.8 }}
       >
         <motion.div 
           className="container card p-6 sm:p-8 text-center"
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
           whileHover={{ scale: 1.02 }}
         >
@@ -364,7 +352,7 @@ export default function Home() {
             className="text-responsive-lg font-bold"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             Have a project in mind?
@@ -373,7 +361,7 @@ export default function Home() {
             className="text-[var(--text-secondary)] mt-2 max-w-[60ch] mx-auto"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             Tell us what you&apos;re building and we&apos;ll suggest the best approach.
@@ -382,7 +370,7 @@ export default function Home() {
             className="mt-6"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <motion.a 

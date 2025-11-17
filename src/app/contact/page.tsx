@@ -1,8 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, FormEvent } from "react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.' });
+        form.reset();
+      } else {
+        setSubmitStatus({ type: 'error', message: 'Something went wrong. Please try again or contact us directly.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or contact us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section className="section">
       <div className="container">
@@ -147,30 +179,38 @@ export default function ContactPage() {
             >
               Send us a message
             </motion.h2>
-            <form className="space-y-6" action="#" method="post" onSubmit={(e) => e.preventDefault()}>
-              <motion.div 
-                className="form-grid"
+            <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value="fe1acc9a-8573-4a63-a110-d993fd7726ed" />
+              
+              {submitStatus.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-md ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-500/10 border border-green-500/20 text-green-500' 
+                      : 'bg-red-500/10 border border-red-500/20 text-red-500'
+                  }`}
+                >
+                  {submitStatus.message}
+                </motion.div>
+              )}
+
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <div>
-                  <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">First Name</label>
-                  <input 
-                    className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors" 
-                    placeholder="John" 
-                    required 
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Last Name</label>
-                  <input 
-                    className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors" 
-                    placeholder="Doe" 
-                    required 
-                  />
-                </div>
+                <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Name</label>
+                <input 
+                  type="text"
+                  name="name"
+                  className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors" 
+                  placeholder="John Doe" 
+                  required 
+                  disabled={isSubmitting}
+                />
               </motion.div>
               
               <motion.div
@@ -182,9 +222,11 @@ export default function ContactPage() {
                 <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Email</label>
                 <input 
                   type="email" 
+                  name="email"
                   className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors" 
                   placeholder="john@example.com" 
                   required 
+                  disabled={isSubmitting}
                 />
               </motion.div>
               
@@ -194,58 +236,28 @@ export default function ContactPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Project Type</label>
-                <select className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors">
-                  <option>Web Development</option>
-                  <option>Mobile App Development</option>
-                  <option>E-commerce Solution</option>
-                  <option>UI/UX Design</option>
-                  <option>DevOps & Cloud</option>
-                  <option>Other</option>
-                </select>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-              >
-                <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Budget Range</label>
-                <select className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors">
-                  <option>Under $5,000</option>
-                  <option>$5,000 - $15,000</option>
-                  <option>$15,000 - $50,000</option>
-                  <option>$50,000+</option>
-                  <option>Let&apos;s discuss</option>
-                </select>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 1.6 }}
-              >
                 <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Message</label>
                 <textarea 
+                  name="message"
                   className="w-full bg-transparent border border-[var(--border)] rounded-md px-4 py-3 h-32 outline-none focus:border-[var(--accent)] transition-colors resize-none" 
                   placeholder="Tell us about your project, goals, and any specific requirements..." 
                   required 
+                  disabled={isSubmitting}
                 />
               </motion.div>
               
               <motion.button 
-                className="btn btn-primary w-full" 
+                className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed" 
                 type="submit"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.95 } : {}}
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>

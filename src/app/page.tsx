@@ -277,12 +277,12 @@ export default function Home() {
           </motion.p>
           <div className="grid gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {title: "Hosting Company Website (PHP + WHMCS)", image: "/portfolio-1.png"},
-              {title: "POS System for Car Services (MERN)", image: "/portfolio-2.png"},
-              {title: "Property Dealing Platform (MERN)", image: "/portfolio-3.png"},
-              {title: "E‑commerce Platform", image: "/portfolio-4.png"},
-              {title: "Software Selling Platform", image: "/portfolio-5.png"},
-              {title: "WordPress ➜ MERN Migration", image: "/portfolio-6.png"},
+              {title: "Hosting Company Website (PHP + WHMCS)", image: "/portfolio1.png"},
+              {title: "POS System for Car Services (MERN)", image: "/portfolio2.png"},
+              {title: "Property Dealing Platform (MERN)", image: "/portfolio3.png"},
+              {title: "E‑commerce Platform", image: "/portfolio4.png"},
+              {title: "Software Selling Platform", image: "/portfolio5.png"},
+              {title: "WordPress ➜ MERN Migration", image: "/portfolio6.png"},
             ].map((project, i) => (
               <motion.div 
                 key={i} 
@@ -293,18 +293,18 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
               >
-                <div className="relative aspect-square overflow-hidden bg-transparent">
+                <div className="relative aspect-square overflow-hidden bg-[var(--bg-secondary)]">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full h-full bg-transparent"
+                    className="w-full h-full"
                   >
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain bg-transparent"
+                      className="object-cover"
                       priority={i < 3}
                     />
                   </motion.div>

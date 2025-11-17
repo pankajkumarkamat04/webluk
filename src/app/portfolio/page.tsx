@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 export default function PortfolioPage() {
   const projects = [
-    { title: "Hosting Company Website", desc: "High-performance hosting website with full automation using WHMCS. Implemented automated product provisioning, invoicing, payment collection, ticketing, and renewals integrated with cPanel/WHM APIs.", image: "/portfolio-1.png", tech: "PHP, WHMCS, cPanel/WHM API, MySQL, Stripe/PayPal" },
-    { title: "POS System for Car Services", desc: "MERN-based POS tailored for an auto workshop. Custom workshop module with automated stock updates, auto-billing, parts and inventory management, and end-to-end job card lifecycle handling. Role-based access, reports, and streamlined service workflows.", image: "/portfolio-2.png", tech: "MongoDB, Express.js, React/Next, Node.js (MERN)" },
-    { title: "Property Dealing Platform", desc: "End-to-end property marketplace with tenant and rental management. Real-time booking and availability, listings with verification, lease workflows, and role-based dashboards for owners, tenants, and admins.", image: "/portfolio-3.png", tech: "MongoDB, Express.js, React/Next, Node.js (MERN), WebSockets" },
-    { title: "E‑commerce Platform", desc: "Scalable e-commerce website with real-time inventory management, CMS for products and pages, multiple payment gateways, and live delivery tracking integration.", image: "/portfolio-4.png", tech: "React/Next, Node.js, MongoDB, Stripe/PayPal/Razorpay, CMS, Courier API" },
-    { title: "Software Selling Platform", desc: "Marketplace for buyers, sellers, and developers with franchise system and API integrations. Fully contactless and automated from purchase to delivery: licensing, keys provisioning, invoicing, notifications, and vendor payouts.", image: "/portfolio-5.png", tech: "MERN (MongoDB, Express.js, React/Next, Node.js), Python services, Webhooks" },
-    { title: "WordPress ➜ MERN Migration", desc: "Migrated a WordPress site to a modern MERN stack with a custom CMS. Used MySQL as the data source, built migration pipelines, and created management for website pages, projects, and product entities linked to the site.", image: "/portfolio-6.png", tech: "MERN (React/Next, Node.js, Express), MySQL, Migration scripts" },
+    { title: "Hosting Company Website", desc: "High-performance hosting website with full automation using WHMCS. Implemented automated product provisioning, invoicing, payment collection, ticketing, and renewals integrated with cPanel/WHM APIs.", image: "/portfolio1.png", tech: "PHP, WHMCS, cPanel/WHM API, MySQL, Stripe/PayPal" },
+    { title: "POS System for Car Services", desc: "MERN-based POS tailored for an auto workshop. Custom workshop module with automated stock updates, auto-billing, parts and inventory management, and end-to-end job card lifecycle handling. Role-based access, reports, and streamlined service workflows.", image: "/portfolio2.png", tech: "MongoDB, Express.js, React/Next, Node.js (MERN)" },
+    { title: "Property Dealing Platform", desc: "End-to-end property marketplace with tenant and rental management. Real-time booking and availability, listings with verification, lease workflows, and role-based dashboards for owners, tenants, and admins.", image: "/portfolio3.png", tech: "MongoDB, Express.js, React/Next, Node.js (MERN), WebSockets" },
+    { title: "E‑commerce Platform", desc: "Scalable e-commerce website with real-time inventory management, CMS for products and pages, multiple payment gateways, and live delivery tracking integration.", image: "/portfolio4.png", tech: "React/Next, Node.js, MongoDB, Stripe/PayPal/Razorpay, CMS, Courier API" },
+    { title: "Software Selling Platform", desc: "Marketplace for buyers, sellers, and developers with franchise system and API integrations. Fully contactless and automated from purchase to delivery: licensing, keys provisioning, invoicing, notifications, and vendor payouts.", image: "/portfolio5.png", tech: "MERN (MongoDB, Express.js, React/Next, Node.js), Python services, Webhooks" },
+    { title: "WordPress ➜ MERN Migration", desc: "Migrated a WordPress site to a modern MERN stack with a custom CMS. Used MySQL as the data source, built migration pipelines, and created management for website pages, projects, and product entities linked to the site.", image: "/portfolio6.png", tech: "MERN (React/Next, Node.js, Express), MySQL, Migration scripts" },
   ];
 
   return (
@@ -38,23 +38,22 @@ export default function PortfolioPage() {
               key={i} 
               className="card overflow-hidden rounded-none"
               initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
               whileHover={{ scale: 1.05, y: -10 }}
             >
-              <div className="relative aspect-square overflow-hidden bg-transparent">
+              <div className="relative aspect-square overflow-hidden bg-[var(--bg-secondary)]">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full bg-transparent"
+                  className="w-full h-full"
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain bg-transparent"
+                    className="object-cover"
                     priority={i < 3}
                   />
                 </motion.div>

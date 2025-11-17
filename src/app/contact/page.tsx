@@ -68,16 +68,14 @@ export default function ContactPage() {
           <motion.div 
             className="space-y-8"
             initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div>
               <motion.h2 
                 className="text-responsive-lg font-bold mb-6"
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 Let&apos;s talk about your project
@@ -85,8 +83,7 @@ export default function ContactPage() {
               <motion.p 
                 className="text-[var(--text-secondary)] mb-6"
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Whether you have a clear vision or just an idea, we&apos;re here to help you bring it to life. 
@@ -104,8 +101,7 @@ export default function ContactPage() {
                   key={i}
                   className="card p-6"
                   initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
                   whileHover={{ scale: 1.02, y: -3 }}
                 >
@@ -133,9 +129,8 @@ export default function ContactPage() {
             <motion.div 
               className="card p-6 bg-gradient-to-r from-[var(--accent)]/10 to-[var(--accent)]/5"
               initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
               whileHover={{ scale: 1.02 }}
             >
               <h3 className="font-bold text-lg mb-2">Why choose us?</h3>
@@ -150,9 +145,8 @@ export default function ContactPage() {
                     key={i}
                     className="flex items-center gap-2"
                     initial={{ x: -10, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 1.4 + i * 0.1 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 1.3 + i * 0.1 }}
                   >
                     <span className="text-[var(--accent)]">✓</span>
                     {item}
@@ -166,15 +160,13 @@ export default function ContactPage() {
           <motion.div 
             className="card p-8"
             initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <motion.h2 
               className="text-xl font-bold mb-6"
               initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               Send us a message
@@ -198,8 +190,7 @@ export default function ContactPage() {
 
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Name</label>
@@ -215,8 +206,7 @@ export default function ContactPage() {
               
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
                 <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Email</label>
@@ -232,8 +222,7 @@ export default function ContactPage() {
               
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
                 <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Message</label>
@@ -250,8 +239,7 @@ export default function ContactPage() {
                 className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed" 
                 type="submit"
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
                 whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
                 whileTap={!isSubmitting ? { scale: 0.95 } : {}}

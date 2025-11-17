@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -33,75 +32,44 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16">
+        <div className="max-w-4xl mx-auto mb-16">
           <motion.div 
-            className="space-y-6"
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            className="text-center"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div>
-              <motion.h2 
-                className="text-responsive-lg font-bold mb-4"
+            <motion.h2 
+              className="text-responsive-lg font-bold mb-6"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Our Story
+            </motion.h2>
+            <div className="text-[var(--text-secondary)] space-y-4 max-w-3xl mx-auto">
+              <motion.p
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Our Story
-              </motion.h2>
-              <motion.p 
-                className="text-[var(--text-secondary)] mb-4"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Webluk Solutions is a development‑first digital agency that specializes in creating robust, scalable web applications. We bridge the gap between innovative ideas and technical execution, serving as a trusted partner for startups, small businesses, and enterprises looking to transform their digital presence.
               </motion.p>
-              <motion.p 
-                className="text-[var(--text-secondary)] mb-4"
+              <motion.p
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 Our core philosophy centers on clean, maintainable code and modern development practices. We architect systems that are secure, performant, and user-friendly, using cutting-edge technologies like React, Next.js, Node.js, and TypeScript.
               </motion.p>
-              <motion.p 
-                className="text-[var(--text-secondary)] mb-6"
+              <motion.p
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
                 Located in Kolkata, we serve clients globally while maintaining the personal touch of a local agency. Whether you need a simple landing page, complex e-commerce platform, or custom web application, we have the expertise and dedication to bring your vision to life.
               </motion.p>
             </div>
-            
-          </motion.div>
-          
-          <motion.div 
-            className="relative"
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <motion.div 
-              className="card overflow-hidden"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image 
-                src="/about.png" 
-                alt="Webluk Solutions team working on development projects" 
-                width={600}
-                height={320}
-                className="w-full h-80 object-cover"
-              />
-            </motion.div>
           </motion.div>
         </div>
 
@@ -111,7 +79,7 @@ export default function AboutPage() {
             className="text-3xl font-bold text-center mb-8"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
             transition={{ duration: 0.6 }}
           >
             How we work
@@ -128,7 +96,7 @@ export default function AboutPage() {
                 className="card p-6 text-center"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
@@ -158,7 +126,7 @@ export default function AboutPage() {
               className="card p-8 text-center"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1, margin: "-50px 0px" }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >

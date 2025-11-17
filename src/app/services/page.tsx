@@ -51,9 +51,8 @@ export default function ServicesPage() {
                             key={i} 
                             className="card"
                             initial={{ y: 50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
                             whileHover={{ scale: 1.05, y: -5 }}
                         >
                             <motion.div 
@@ -90,9 +89,8 @@ export default function ServicesPage() {
                     <motion.h2 
                         className="text-3xl font-bold text-center mb-8"
                         initial={{ y: 30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.6 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 1.3 }}
                     >
                         Our Development Process
                     </motion.h2>
@@ -107,9 +105,8 @@ export default function ServicesPage() {
                                 key={i} 
                                 className="card p-6 text-center"
                                 initial={{ y: 50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.6, delay: i * 0.15 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 1.5 + i * 0.15 }}
                                 whileHover={{ scale: 1.05, y: -5 }}
                             >
                                 <motion.div 
@@ -130,35 +127,31 @@ export default function ServicesPage() {
                 <motion.div 
                     className="card p-8 text-center"
                     initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 2.1 }}
                     whileHover={{ scale: 1.02 }}
                 >
                     <motion.h2 
                         className="text-2xl sm:text-3xl font-bold mb-4"
                         initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 2.3 }}
                     >
                         Ready to start your project?
                     </motion.h2>
                     <motion.p 
                         className="text-[var(--text-secondary)] mb-6 max-w-[60ch] mx-auto"
                         initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 2.5 }}
                     >
                         We&apos;re flexible with engagement models — fixed scope, monthly retainer, or on‑demand support. Let&apos;s discuss what works best for your needs.
                     </motion.p>
                     <motion.div 
                         className="flex gap-4 justify-center"
                         initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 2.7 }}
                     >
                         <motion.a 
                             href="/contact" 
